@@ -1,0 +1,123 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    padding:0px;
+    margin: 0px;
+ }
+
+/*.container{
+    background: url(https://images.pexels.com/photos/459469/pexels-photo-459469.jpeg?cs=srgb&dl=basil-delicious-food-459469.jpg&fm=jpg) no-repeat;
+
+}*/
+
+body{
+    color:black;
+    background: #eee;
+    padding-top: 100px;
+    
+}
+
+h1{
+    padding-bottom: 10px;  
+    width: 100%;
+    background: skyblue;
+    margin: auto;
+    position: fixed;
+    top:0;
+    left:0;
+}
+form{
+    display: inline;
+}
+
+form,input,button{
+    padding: 10px;
+}
+.ingredients{
+    width: 66%;
+
+}
+.search{
+    position: fixed;
+    top:0;
+    right:0;
+    display: inline;
+}
+.container{
+    margin:auto;
+    width: 75%;
+    overflow:hidden;
+
+}
+
+li{
+    list-style: none;
+    
+}
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.foodImage{
+
+    width:33%;
+    float: right;
+
+}
+
+.footer{
+    padding-top: 200px;
+}
+
+/*li:nth-child(even){
+    background: skyblue; 
+}*/
+iframe{
+    height:0px;
+    width:0px;
+    transition:all .4s;
+}
+
+iframe.show{
+    height:400px;
+    width:100%;
+}
+
+.recipe {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 1rem;
+    position: relative;
+    width: 300px;
+    padding: 1rem;
+    vertical-align: top;
+  }
+  
+  .recipe {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  
+  .recipe:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  @media screen and (max-width: 915px) {
+    .recipe {
+        width:100%;
+        margin:1rem 0;
+    }
+    .container{
+        width:100%;
+    }
+}
+
+iframe{
+    position: fixed;
+    width:100%;
+    height:100%;
+    z-index: 1000;
+}

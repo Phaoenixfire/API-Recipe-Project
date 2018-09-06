@@ -1,0 +1,40 @@
+<!--"https://api.edamam.com/search?q=chicken&app_id=42475fa9&app_key= 200d2b3191b956d540b7945238ca841e&from=0&to=3&calories=591-722&health=alcohol-free"
+https://developer.edamam.com/edamam-docs-recipe-api
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="description" content="FoodAPI">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header role="heading">
+        <h1>What's In The Fridge?</h1>
+       
+
+        
+        <div class="search">
+                <form name="search-fridge" class="search_fridge" role="searchFunctionality">
+                    <input type="search" class="user-search-input" placeholder="What do you have?">
+                    <input class="submit" type="submit" value="Search Recipes">
+    
+                </form>
+                <button class="speak_to_search"><i class="fas fa-microphone"></i></button>
+            </div>
+    </header>
+    <div class="container"> 
+        <ul class="query_items"></ul>
+        <div class="search-results"></div>
+    </div>
+    <div class="footer"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
