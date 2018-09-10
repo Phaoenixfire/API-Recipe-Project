@@ -1,13 +1,4 @@
 
-/*fetch('https://api.edamam.com/search?q=chicken tomatoes pineapple onions garlic &app_id=42475fa9&app_key=200d2b3191b956d540b7945238ca841e&from=0&to=30&calories=591-722&health=alcohol-free')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(myJson);
-  });
-*/
-
 $('form').submit(async (e) => {
   e.preventDefault();
   $('.query_items').append(`<li>${$(".user-search-input").val()} <span class="fas fa-window-close remove">  </span></li>`)
@@ -39,13 +30,28 @@ function displayData(data) {
   }
   $(".search-results").html(html)
   $('button.showIFrame').click(function () {
-    $(this).parent().find("iframe").toggleClass("show")
     console.log(this)
     $("iframe").remove()
-    $("body").append(`<iframe src="${$(this).data('iframe')}"></iframe>`)
-    window.t = this
+    $(".iframe_window").append(`<iframe onLoad="loadIframe()" onerror="alert('Failed')" src="${$(this).data('iframe')}"></iframe>`)
+    $(this).html(`<span  class="appendMovingDots">Loading</span>`)
   })
 }
+$(".iframe_exit").on('click',function(e){
+  $(this).parent().removeClass("show")
+  $('.recipe button').html('Show Recipe')
+})
+function loadIframe(){
+  var that = $("iframe")[0];
+  console.log(that)
+   try{
+        that.contentDocument;
+        console.log(that.contentDocument)
+   }
+   catch(err){
+        console.log(err)
+   }
+  $(".iframe_window").addClass("show")
+};
 const MY_WIT_TOKEN = "VHYMVTZ5I6ZPPWFVYTYAXLMVXNARCAK2";
 
 function getWit(query) {
@@ -72,8 +78,7 @@ function getEdamam(wit) {
     .then(function (myJson) {
       console.log(myJson);
       let s = myJson.hits.sort(function (a, b) {
-        return a.recipe.ingredients.length - b.recipe.ingredients.length // || // sort by length, if equal then
-          //a.localeCompare(b);    // sort by dictionary order
+        return a.recipe.ingredients.length - b.recipe.ingredients.length 
       })
       console.log(s);
 
@@ -89,13 +94,18 @@ function speechRecognition() {
 
   recognition.onresult = function (event) {
     console.log('You said: ', event.results[0][0].transcript);
-    getRecipes(event.results[0][0].transcript);
+   // getRecipes(event.results[0][0].transcript);
+  $('.query_items').append(`<li>${event.results[0][0].transcript} <span class="fas fa-window-close remove">  </span></li>`)
+  let queryitem = $('ul.query_items').clone().find('span').remove().end().text();
+  console.log(queryitem)
+  getRecipes(queryitem)
   }
 };
 
 $("button.speak_to_search").on("click", speechRecognition)
 
 const getRecipes = async (query) => {
+  $(".instructions").addClass("shrink")
   console.log("hi")
   let wit = await getWit(query);
   console.log(wit)

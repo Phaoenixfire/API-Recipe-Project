@@ -20,16 +20,25 @@ https://developer.edamam.com/edamam-docs-recipe-api
         
         <div class="search">
                 <form name="search-fridge" class="search_fridge" role="searchFunctionality">
-                    <input type="search" class="user-search-input" placeholder="What do you have?">
+                    <input type="search" class="user-search-input" placeholder="Apples">
                     <input class="submit" type="submit" value="Search Recipes">
     
                 </form>
                 <button class="speak_to_search"><i class="fas fa-microphone"></i></button>
             </div>
     </header>
+    <div class="instructions">
+        <h3>Tell me what's in your fridge?</h3><br>
+        <p>Type a food item above.</p><br>
+        <p>Add ingredients in the house one at a time to the list. As more ingredients are added the recipes will change to minimize extra expenditure.</p>
+    </div>
     <div class="container"> 
         <ul class="query_items"></ul>
         <div class="search-results"></div>
+    </div>
+    <div class="iframe_window">
+            <span class="fas fa-window-close iframe_exit"></span>
+            <!--<div class="loading">Loading..</div>-->
     </div>
     <div class="footer"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
