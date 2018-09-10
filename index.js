@@ -23,7 +23,7 @@ function displayData(data) {
       <div class="ingredients">
       ${data.hits[i].recipe.ingredients.map(ingredient => `<li>${ingredient.text}</li>`).join('')}
       </div>
-      <button data-iframe="${data.hits[i].recipe.url}" class="showIFrame">Show Recipe</button>
+      <button data-iframe="${data.hits[i].recipe.url.replace(/^http:\/\//i, 'https://')}" class="showIFrame">Show Recipe</button>
       
     </div>
     `
