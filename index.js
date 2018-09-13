@@ -31,9 +31,11 @@ function displayData(data) {
   $(".search-results").html(html)
   $('button.showIFrame').click(function () {
     console.log(this)
-    $("iframe").remove()
+    let url = $(this).data('iframe')
+    window.open(url, '_blank');
+   /* $("iframe").remove()
     $(".iframe_window").append(`<iframe onLoad="loadIframe()" onerror="alert('Failed')" src="${$(this).data('iframe')}"></iframe>`)
-    $(this).html(`<span  class="appendMovingDots">Loading</span>`)
+    $(this).html(`<span  class="appendMovingDots">Loading</span>`)*/
   })
 }
 $(".iframe_exit").on('click',function(e){
@@ -112,3 +114,7 @@ const getRecipes = async (query) => {
   getEdamam(wit)
 }
 
+$( "document" ).ready(function(){
+  let queryitem = $('ul.query_items').clone().find('span').remove().end().text();
+  getRecipes(queryitem)}
+)

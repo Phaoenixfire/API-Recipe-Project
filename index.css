@@ -134,9 +134,9 @@ header{
   .instructions{
       padding: 10px;
       transition: all 1.25s;
-      font-size: 60px;
+      font-size: 4vw;
       text-align: justify;
-      margin: 50px;
+      margin: 50px 5vw;
   }
   .instructions.shrink{
       font-size: 20px;
